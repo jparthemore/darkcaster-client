@@ -8,9 +8,8 @@
   <link rel="stylesheet" href="../dist/style.css">
 </head>
 <body>
-  <div ng-controller='MainController'>
-    {{ message }}
-    {{crowbar}}
+  <div ng-controller='MainController as ctrl'>
+    {{ ctrl.message }}
   </div>
 
 <script src="../dist/main.bundle.js"></script>
