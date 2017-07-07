@@ -1,6 +1,8 @@
 // require('./app.css');
 // console.log('It works');
 const angular = require('angular');
+const weatherData = require('../mocks/weather.json');
+//window.weatherData = weatherData; //window is browser window
 
 //console.log(angular);
 
@@ -15,4 +17,5 @@ MainController.$inject = []; //magic for us
 function MainController(){
   this.message = 'hello from angular';
   // const crowbar = 'hellow from angular again';
+  this.weatherData = weatherData.currently;
 }

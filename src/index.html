@@ -8,7 +8,25 @@
 </head>
 <body>
   <div ng-controller='MainController as ctrl'>
-    {{ ctrl.message }}
+    <section>
+      <header>
+        <p>Precipitation Probability: {{ ctrl.weatherData.precipProbability * 100 | number:2 }}%</p>
+        <img src="https://placehold.it/50x50" />
+        <p>{{ ctrl.weatherData.time * 1000 | date: 'short'}}</p>
+      </header>
+      <main>
+        <h1> Humidity: {{ ctrl.weatherData.humidity * 100 | number: 0 }}%</h1>
+        <div>
+          <h1>Temperature: {{ ctrl.weatherData.temperature  | number: 0}}&deg; F</h1>
+          <h2>Feels like: {{ ctrl.weatherData.apparentTemperature | number: 0}}&deg; F</h2>
+        </div>
+        <h1>UV Index: {{ ctrl.weatherData.uvIndex }}</h1>
+      </main>
+      <footer>
+        <h1>Summary: {{ ctrl.weatherData.summary }}</h1>
+      </footer>
+    </section>
+    <pre>{{ ctrl.weatherData | json }}</pre>
   </div>
 </body>
 </html>
