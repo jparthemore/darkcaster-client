@@ -2,6 +2,7 @@
 // console.log('It works');
 const angular = require('angular');
 const weatherData = require('../mocks/weather.json');
+const images = require('./images/things.png');
 //window.weatherData = weatherData; //window is browser window
 
 //console.log(angular);

@@ -3,7 +3,7 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+//const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 /*
@@ -41,10 +41,19 @@ module.exports = {
 				test: /\.js$/,
 				exclude: /node_modules/,
 				loader: 'babel-loader',
-
 				options: {
 					presets: ['es2015']
 				}
+			},
+			{
+				test: /\.(jpe?g|gif|png|svg)$/,
+				loader: "file-loader",
+				options:{
+					//name: '[path][name].[hash].[ext]',//possible filename template placeholders
+					//name: './images/[hash].[ext]'//this outputs file as md5 hadsh - which is default for fileloader
+					//if no parameters used here at all -images will be output as md5 hash in root of dist
+					name: './images/[name].[ext]' //this will output images w/original name in images folder under dist
+					}
 			},
 			{
 				test: /\.css$/,
@@ -71,7 +80,8 @@ module.exports = {
 							filename: 'index.html',
 							template: './src/index.html'
 						}),
-					  new CopyWebpackPlugin([
+					  /*new CopyWebpackPlugin([
 							{from:'./src/images', to: './images'}
-						])]
+						])*/
+					]
 };
