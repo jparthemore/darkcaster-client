@@ -45,16 +45,40 @@ module.exports = {
 					presets: ['es2015']
 				}
 			},
+			// {
+			// 	test: /\.(jpe?g|gif|png|svg)$/,
+			// 	loader: "file-loader",
+			//
+			// 	// loaders: [
+      //   //     'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+      //   //     'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
+      //   // ]
+			// 	options:{
+			// 		//name: '[path][name].[hash].[ext]',//possible filename template placeholders
+			// 		//name: './images/[hash].[ext]'//this outputs file as md5 hadsh - which is default for fileloader
+			// 		//if no parameters used here at all -images will be output as md5 hash in root of dist
+			// 		name: './images/[name].[ext]' //this will output images w/original name in images folder under dist
+			// 		}
+			// },
 			{
-				test: /\.(jpe?g|gif|png|svg)$/,
-				loader: "file-loader",
-				options:{
-					//name: '[path][name].[hash].[ext]',//possible filename template placeholders
-					//name: './images/[hash].[ext]'//this outputs file as md5 hadsh - which is default for fileloader
-					//if no parameters used here at all -images will be output as md5 hash in root of dist
-					name: './images/[name].[ext]' //this will output images w/original name in images folder under dist
-					}
+				test: /\.(jpg|gif|png|svg)$/,
+				loaders:[
+					'file-loader?name=./images/[name].[ext]',
+					'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
+				]
 			},
+			/*{
+				test: /\.(jpe?g|gif|png|svg)$/,
+				loaders: "file-loader",
+				options:{
+						name: './images/[name].[ext]' //this will output images w/original name in images folder under dist
+					}
+			},*/
+			/*loaders: [
+            'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+            'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ]*/
+
 			{
 				test: /\.css$/,
 
