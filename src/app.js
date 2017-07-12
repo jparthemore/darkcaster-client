@@ -14,7 +14,8 @@ angular.module('darkcaster-client') //getter syntax - angular version of require
 MainController.$inject = ['WeatherService']; //magic for us
 
 function MainController(weather){
-  //console.log(weather);
+  // console.log(weather);
   this.message = 'hello from angular';
   this.weatherData = weather.getCurrentWeather();
+  
 }
