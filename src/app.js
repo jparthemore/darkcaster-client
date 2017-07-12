@@ -1,22 +1,20 @@
-// require('./app.css');
-// console.log('It works');
+/*jshint esversion: 6*/
 const angular = require('angular');
-const weatherData = require('../mocks/weather.json');
 
-//window.weatherData = weatherData; //window is browser window
-
-//console.log(angular);
+//services
+const WeatherService = require('./services/weather.service');
 
 //create our applicaton
 angular.module('darkcaster-client',[]);//setter syntax
 
 angular.module('darkcaster-client') //getter syntax - angular version of require
-        .controller('MainController', MainController);
+        .controller('MainController', MainController)
+        .factory('WeatherService',WeatherService);
 
-MainController.$inject = []; //magic for us
+MainController.$inject = ['WeatherService']; //magic for us
 
-function MainController(){
+function MainController(weather){
+  //console.log(weather);
   this.message = 'hello from angular';
-  // const crowbar = 'hellow from angular again';
-  this.weatherData = weatherData.currently;
+  this.weatherData = weather.getCurrentWeather();
 }
