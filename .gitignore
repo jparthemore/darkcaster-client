@@ -1,2 +1,12 @@
 node_modules
 dist
+src/images/clear-night.png
+src/images/cloudy.png
+src/images/partly-cloudy-day.png
+src/images/partly-cloudy-night.png
+src/images/rain.png
+src/images/snow.png
+src/images/weather.png
+src/images/wind.png
+src/images/fog.png
+src/images/sleet.png

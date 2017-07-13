@@ -12,7 +12,7 @@ function WeatherService($http){
   function getCurrently(lat,lon){
     //return weatherData.currently;
     const url = `${baseUrl}${lat},${lon}`;
-    return $http.get(baseUrl)
+    return $http.get(url)
                 .then(response =>{
                   //console.log(response);
                   return response.data.currently;
