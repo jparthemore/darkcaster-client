@@ -3,6 +3,7 @@
     <header>
       <p>Precipitation Probability: {{ $ctrl.weatherData.precipProbability * 100 | number:2 }}%</p>
       <img ng-src="{{ $ctrl.imageLookup[$ctrl.weatherData.icon] }}" />
+      <!-- <img ng-src="{{ $ctrl.imageLookup[$ctrl.weatherData.icon] || $ctrl.missingImage }}" /> -->
       <p>{{ $ctrl.weatherData.time * 1000 | date: 'short'}}</p>
     </header>
     <main>
