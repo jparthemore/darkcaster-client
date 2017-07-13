@@ -14,7 +14,6 @@ function WeatherService($http){
     const url = `${baseUrl}${lat},${lon}`;
     return $http.get(url)
                 .then(response =>{
-                  //console.log(response);
                   return response.data.currently;
                 })
   }

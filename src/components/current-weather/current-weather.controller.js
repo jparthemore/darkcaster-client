@@ -10,11 +10,9 @@ const wind =  require('../../images/wind.png');
 const fog =  require('../../images/fog.png');
 const missingImage = require('../../images/weather.png'); //use this as default for missing icon image
 
-MainController.$inject = ['WeatherService']; //magic for us
+CurrentWeatherController.$inject = ['WeatherService']; //magic for us
 
-function MainController(weather){
-  // console.log(weather);
-  //this.message = 'hello from angular';
+function CurrentWeatherController(weather){
   this.lat = 0;
   this.lon = 0;
   this.imageLookup = {
@@ -33,9 +31,6 @@ function MainController(weather){
 
   //functions
   this.search = function search(){
-    console.log('searching...');
-    console.log(this.lat);
-    console.log(this.lon);
     weather.getCurrentWeather(this.lat,this.lon)
            .then(currentWeather => this.weatherData = currentWeather); //is a promise
   };
@@ -46,4 +41,4 @@ function MainController(weather){
   //console.log(this.weatherData);
 }
 
-module.exports = MainController;
+module.exports = CurrentWeatherController;
