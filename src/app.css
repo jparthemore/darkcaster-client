@@ -1,3 +1,9 @@
 /*body{
   background-color: aliceblue;
 }*/
+img{
+  height: 100px;
+}
+img.detail-icon{
+ height: 50px;
+}

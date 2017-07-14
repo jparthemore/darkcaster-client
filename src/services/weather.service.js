@@ -7,7 +7,8 @@ function WeatherService($http){
   const baseUrl = 'https://guarded-caverns-14178.herokuapp.com/weather/';
   return{
     //label      function name
-    getCurrentWeather: getCurrently
+    getCurrentWeather: getCurrently,
+    getHourlyWeather: getHourly,
   }
   function getCurrently(lat,lon){
     //return weatherData.currently;
@@ -17,6 +18,12 @@ function WeatherService($http){
                   return response.data.currently;
                 })
   }
+
+  function getHourly(){
+    return weatherData.hourly;
+  }
+
+
 }
 
 module.exports = WeatherService;

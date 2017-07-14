@@ -1,0 +1,30 @@
+<section>
+  <header>
+    <h1>Hourly:</h1>
+    <h1>Summary: {{ $ctrl.weatherHourly.summary}}</h1>
+    <img ng-src="{{ $ctrl.imageLookup[$ctrl.weatherHourly.icon]  || $ctrl.missingImage}}" />
+  </header>
+  <main>
+
+<!-- this give you all the data details - array of objects -->
+    <!-- <p ng-repeat="x in $ctrl.weatherHourly"> {{ $ctrl.weatherHourly.data}}</p> -->
+
+<!-- this works to show subset of data details - still as array of objects -->
+    <!-- <p ng-repeat="x in $ctrl.weatherHourlyDetails"> {{ x }}</p> -->
+
+    <!-- Pattern: <h1 ng-repeat="x in records">{{x}}</h1> -->
+    <p ng-repeat="x in $ctrl.weatherHourlyDetails">
+      Time: {{ x.time * 1000 |date: 'short' }} <br>
+      Precipitation Probability: {{ x.precipProbability * 100  |number: 1 }} % <br>
+      <img class="detail-icon" ng-src="{{ $ctrl.imageLookup[x.icon] || $ctrl.missingImage }}" /><br>
+      Humidity: {{ x.humidity * 100 | number: 0}} % <br>
+      Temperature: {{ x.temp}} <br>
+      Feels Like: {{ x.feelTemp}} <br>
+      UV Index: {{ x.uvIndex}} <br>
+      Summary: {{ x.summary}}
+
+    </p>
+
+  </main>
+</section>
+  <pre>{{ $ctrl.weatherHourly | json }}</pre>
