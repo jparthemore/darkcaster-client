@@ -6,14 +6,9 @@
   </header>
   <main>
 
-<!-- this give you all the data details - array of objects -->
-    <!-- <p ng-repeat="x in $ctrl.weatherHourly"> {{ $ctrl.weatherHourly.data}}</p> -->
-
-<!-- this works to show subset of data details - still as array of objects -->
-    <!-- <p ng-repeat="x in $ctrl.weatherHourlyDetails"> {{ x }}</p> -->
-
-    <!-- Pattern: <h1 ng-repeat="x in records">{{x}}</h1> -->
-    <p ng-repeat="x in $ctrl.weatherHourlyDetails">
+  <!-- Pattern: <h1 ng-repeat="x in records">{{x}}</h1> -->
+    <p ng-repeat="x in $ctrl.weatherHourly.data">
+      ------------------------ <br>
       Time: {{ x.time * 1000 |date: 'short' }} <br>
       Precipitation Probability: {{ x.precipProbability * 100  |number: 1 }} % <br>
       <img class="detail-icon" ng-src="{{ $ctrl.imageLookup[x.icon] || $ctrl.missingImage }}" /><br>
@@ -21,8 +16,7 @@
       Temperature: {{ x.temp}} <br>
       Feels Like: {{ x.feelTemp}} <br>
       UV Index: {{ x.uvIndex}} <br>
-      Summary: {{ x.summary}}
-
+      Summary: {{ x.summary}} <br>
     </p>
 
   </main>

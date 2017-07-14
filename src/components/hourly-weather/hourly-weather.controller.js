@@ -16,22 +16,6 @@ HourlyWeatherController.$inject = ['WeatherService'];//controller needs WeatherS
 
 function HourlyWeatherController(weather){
   this.weatherHourly = weather.getHourlyWeather();
-  this.weatherHourlyData = weather.getHourlyWeather().data;
-  this.weatherHourlyDetails = []; //want to get a subset of original data to display
-
-for(let i=0;i<this.weatherHourlyData.length;i++){
-    const weatherDetail ={
-       time: this.weatherHourlyData[i].time,
-       precipProbability: this.weatherHourlyData[i].precipProbability,
-       icon: this.weatherHourlyData[i].icon,
-       humidity: this.weatherHourlyData[i].humidity,
-       temp: this.weatherHourlyData[i].temperature,
-       feelTemp: this.weatherHourlyData[i].apparentTemperature,
-       uvIndex: this.weatherHourlyData[i].uvIndex,
-       summary: this.weatherHourlyData[i].summary
-    };
-    this.weatherHourlyDetails.push(weatherDetail);
-  }
 
   this.imageLookup = {
    'clear-day': clearDay,
