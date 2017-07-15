@@ -1,12 +1,23 @@
 <section>
+  <div>
+    <label>Latitude:</label>
+    <input type="number" ng-model='$ctrl.lat' >
+  </div>
+  <div>
+    <label>Longitude: </label>
+    <input type="number" ng-model='$ctrl.lon'>
+  </div>
+  <div>
+    <button type="button" ng-click='$ctrl.search()'>Search</button>
+  </div>
+</section>
+<section ng-if='$ctrl.weatherHourly'>
   <header>
     <h1>Hourly:</h1>
     <h1>Summary: {{ $ctrl.weatherHourly.summary}}</h1>
     <img ng-src="{{ $ctrl.imageLookup[$ctrl.weatherHourly.icon]  || $ctrl.missingImage}}" />
   </header>
   <main>
-
-  <!-- Pattern: <h1 ng-repeat="x in records">{{x}}</h1> -->
     <p ng-repeat="x in $ctrl.weatherHourly.data">
       ------------------------ <br>
       Time: {{ x.time * 1000 |date: 'short' }} <br>
@@ -18,7 +29,6 @@
       UV Index: {{ x.uvIndex}} <br>
       Summary: {{ x.summary}} <br>
     </p>
-
   </main>
 </section>
   <pre>{{ $ctrl.weatherHourly | json }}</pre>

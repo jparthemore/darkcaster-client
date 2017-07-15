@@ -1,6 +1,6 @@
 /*jshint esversion: 6*/
 const angular = require('angular');
-const weatherData = require('../mocks/weather.json');
+//const weatherData = require('../mocks/weather.json');
 
 require('./app.css');
 
