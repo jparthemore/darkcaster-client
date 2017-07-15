@@ -1,1 +1,16 @@
+<section ng-if=$ctrl.weatherMinutely>
+  <header>
+    <h1>Minutely:</h1>
+    <h1>Summary: {{ $ctrl.weatherMinutely.summary}}</h1>
+    <img ng-src="{{ $ctrl.imageLookup[$ctrl.weatherMinutely.icon || $ctrl.missingImage]}}" />
+  </header>
+  <main>
+    <p ng-repeat="x in $ctrl.weatherMinutely.data">
+      ---------------------- <br>
+      Time: {{ x.time * 1000 | date: 'short'}} <br>
+      Precipitation Probability: {{ x.precipProbability * 100 | number: 1}}% <br>
+      Precipitation Intensity: {{ x.precipIntensity * 100 |number: 0}}% <br>
+    </p>
+  </main>
+</section>
 <pre>{{ $ctrl.weatherMinutely | json }}</pre>
