@@ -15,14 +15,14 @@
   <header>
     <h1>Hourly:</h1>
     <h1>Summary: {{ $ctrl.weatherHourly.summary}}</h1>
-    <!-- <img ng-src="{{ $ctrl.imageLookup[$ctrl.weatherHourly.icon]  || $ctrl.missingImage}}" /> -->
+    <img ng-src="{{ $ctrl.imageLookup[$ctrl.weatherHourly.icon]  || $ctrl.missingImage}}" />
   </header>
   <main>
     <p ng-repeat="x in $ctrl.weatherHourly.data">
       ------------------------ <br>
       Time: {{ x.time * 1000 |date: 'short' }} <br>
       Precipitation Probability: {{ x.precipProbability * 100  |number: 1 }} % <br>
-      <!-- <img class="detail-icon" ng-src="{{ $ctrl.imageLookup[x.icon] || $ctrl.missingImage }}" /><br> -->
+      <img class="detail-icon" ng-src="{{ $ctrl.imageLookup[x.icon] || $ctrl.missingImage }}" /><br>
       Humidity: {{ x.humidity * 100 | number: 0}} % <br>
       Temperature: {{ x.temp}} <br>
       Feels Like: {{ x.feelTemp}} <br>
