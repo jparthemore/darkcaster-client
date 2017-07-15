@@ -1,11 +1,15 @@
 /*jshint esversion: 6*/
 
-const weatherData = require('../../../mocks/weather.json');
+//const weatherData = require('../../../mocks/weather.json');
 
-MinutelyWeatherController.$inject=[];
+MinutelyWeatherController.$inject=['WeatherService'];
 
-function MinutelyWeatherController (){
-  this.weatherMinutely = weatherData.minutely;
+function MinutelyWeatherController (weather){
+  //this.weatherMinutely = weatherData.minutely;
+  this.lat = 32;
+  this.lon = -127;
+  weather.getMinutelyWeather(this.lat,this.lon)
+                                .then(resp=>this.weatherMinutely=resp);
 }
 
 module.exports = MinutelyWeatherController;
