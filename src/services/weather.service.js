@@ -1,13 +1,14 @@
-const weatherData = require('../../mocks/weather.json');
+//const weatherData = require('../../mocks/weather.json');
 
-WeatherService.$inject = ['$http']; //currenty angular needs no tools for this service
+WeatherService.$inject = ['$http'];
 
 function WeatherService($http){
   //const baseUrl = 'https://guarded-caverns-14178.herokuapp.com/weather/29,-81';
   const baseUrl = 'https://guarded-caverns-14178.herokuapp.com/weather/';
   return{
     //label      function name
-    getCurrentWeather: getCurrently
+    getCurrentWeather: getCurrently,
+    getHourlyWeather: getHourly
   }
   function getCurrently(lat,lon){
     //return weatherData.currently;
@@ -17,6 +18,18 @@ function WeatherService($http){
                   return response.data.currently;
                 })
   }
+
+  function getHourly(lat,lon){
+    //return weatherData.hourly;
+    //console.log(lat,lon);
+    const url = `${baseUrl}${lat},${lon}`;
+    return  $http.get(url)
+                 .then(resp=>{
+                   return resp.data.hourly;
+                 })
+  }
+
+
 }
 
 module.exports = WeatherService;
