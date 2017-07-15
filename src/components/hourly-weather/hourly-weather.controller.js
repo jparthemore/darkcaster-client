@@ -1,24 +1,25 @@
 /*jshint esversion: 6*/
-const clearDay = require('../../images/clear-day.png');
-const clearNight = require('../../images/clear-night.png');
-const cloudy = require('../../images/cloudy.png');
-const fog = require('../../images/fog.png');
-const partlyCloudyDay = require('../../images/partly-cloudy-day.png');
-const partlyCloudyNight = require('../../images/partly-cloudy-night.png');
-const rain = require('../../images/rain.png');
-const sleet = require('../../images/sleet.png');
-const snow = require('../../images/snow.png');
-const wind = require('../../images/wind.png');
-const missingImage = require('../../images/weather.png');
+// const clearDay = require('../../images/clear-day.png');
+// const clearNight = require('../../images/clear-night.png');
+// const cloudy = require('../../images/cloudy.png');
+// const fog = require('../../images/fog.png');
+// const partlyCloudyDay = require('../../images/partly-cloudy-day.png');
+// const partlyCloudyNight = require('../../images/partly-cloudy-night.png');
+// const rain = require('../../images/rain.png');
+// const sleet = require('../../images/sleet.png');
+// const snow = require('../../images/snow.png');
+// const wind = require('../../images/wind.png');
+// const missingImage = require('../../images/weather.png');
 
 
 HourlyWeatherController.$inject = ['WeatherService'];//controller needs WeatherService
+HourlyWeatherController.$inject = ['ImageService'];
 
-function HourlyWeatherController(weather){
+function HourlyWeatherController(weather,images){
   //this.weatherHourly = weather.getHourlyWeather();
   this.lat = 0;
   this.lon = 0;
-  this.imageLookup = {
+  /*this.imageLookup = {
    'clear-day': clearDay,
    'clear-night': clearNight,
    'cloudy' : cloudy,
@@ -30,7 +31,7 @@ function HourlyWeatherController(weather){
    'snow' : snow,
    'wind' :wind
  };
- this.missingImage = missingImage;
+ this.missingImage = missingImage;*/
 
  this.search = function search(){
    weather.getHourlyWeather(this.lat,this.lon)
