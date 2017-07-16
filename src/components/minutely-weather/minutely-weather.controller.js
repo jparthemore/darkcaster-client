@@ -6,12 +6,22 @@ MinutelyWeatherController.$inject=['WeatherService','ImageService'];
 
 function MinutelyWeatherController (weather,images){
   //this.weatherMinutely = weatherData.minutely;
-  this.lat = 32;
-  this.lon = -127;
+  this.lat = 0;
+  this.lon = 0;
   this.imageLookup = images.imageLookup;
   this.missingImage = images.missingImage;
-  weather.getMinutelyWeather(this.lat,this.lon)
-                                .then(resp=>this.weatherMinutely=resp);
+  this.weatherMinutelyNotAvailable = false;
+  this.search = function search(){
+    weather.getMinutelyWeather(this.lat,this.lon)
+                                  .then(resp=>{
+                                    if(resp){
+                                      this.weatherMinutely=resp;
+                                    }
+                                    else{
+                                      this.weatherMinutelyNotAvailable='true';
+                                    }
+                                  });
+  };
 }
 
 module.exports = MinutelyWeatherController;
