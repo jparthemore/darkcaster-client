@@ -13,7 +13,7 @@
 </section>
 <section ng-if='$ctrl.weatherMinutely'>
   <header>
-    <h1>Minutely:</h1>
+    <h1>Weather By the Minute</h1>
     <h1>Summary: {{ $ctrl.weatherMinutely.summary}}</h1>
     <img ng-src="{{ $ctrl.imageLookup[$ctrl.weatherMinutely.icon || $ctrl.missingImage]}}" />
   </header>

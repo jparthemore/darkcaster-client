@@ -13,7 +13,8 @@
   </section>
   <section ng-if='$ctrl.weatherData'>
     <header>
-      <p>Precipitation Probability: {{ $ctrl.weatherData.precipProbability * 100 | number:2 }}%</p>
+      <h2>Current Weather</h2>
+      <p>Precipitation Probability: {{ $ctrl.weatherData.precipProbability * 100 | number:1 }}%</p>
       <img ng-src="{{ $ctrl.imageLookup[$ctrl.weatherData.icon] || $ctrl.missingImage }}" />
       <p>{{ $ctrl.weatherData.time * 1000 | date: 'short'}}</p>
     </header>
