@@ -1,0 +1,32 @@
+<section>
+  <div>
+    <label>Latitude:</label>
+    <input type="number" ng-model='$ctrl.lat'/>
+  </div>
+  <div>
+    <label>Longitude:</label>
+    <input type="number" ng-model='$ctrl.lon'/>
+  </div>
+  <div>
+    <button type="button" ng-click='$ctrl.search()'>Search</button>
+  </div>
+</section>
+<section ng-if='$ctrl.weatherMinutely'>
+  <header>
+    <h1>Minutely:</h1>
+    <h1>Summary: {{ $ctrl.weatherMinutely.summary}}</h1>
+    <img ng-src="{{ $ctrl.imageLookup[$ctrl.weatherMinutely.icon || $ctrl.missingImage]}}" />
+  </header>
+  <main>
+    <p ng-repeat="x in $ctrl.weatherMinutely.data">
+      ---------------------- <br>
+      Time: {{ x.time * 1000 | date: 'short'}} <br>
+      Precipitation Probability: {{ (x.precipProbability * 100 | number: 1) || 'not available'}}% <br>
+      Precipitation Intensity: {{ (x.precipIntensity * 100 |number: 0) || 'not available'}}% <br>
+    </p>
+  </main>
+</section>
+<section ng-if='$ctrl.weatherMinutelyNotAvailable'>
+  <br>Sorry no minutely data available for this location at this time
+</section>
+<!-- <pre>{{ $ctrl.weatherMinutely | json }}</pre> -->
