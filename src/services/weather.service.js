@@ -9,12 +9,16 @@ function WeatherService($http){
   const baseUrl = 'https://guarded-caverns-14178.herokuapp.com/weather/';
   return{
     //label      function name
-    getCurrentWeather: getCurrently,
-    getHourlyWeather: getHourly,
-    getMinutelyWeather: getMinutely,
-    getDailyWeather: getDaily
+    getCurrentlyWeatherByCoordinates: getCurrentlyByCoordinates,
+    getCurrentlyWeatherByLocation: getCurrentlyByLocation,
+    getHourlyWeatherByCoordinates: getHourlyByCoordinates,
+    getHourlyWeatherByLocation: getHourlyByLocation,
+    getMinutelyWeatherByCoordinates: getMinutelyByCoordinates,
+    getMinutelyWeatherByLocation: getMinutelyByLocation,
+    getDailyWeatherByCoordinates: getDailyByCoordinates,
+    getDailyWeatherByLocation: getDailyByLocation
   };
-  function getCurrently(lat,lon){
+  function getCurrentlyByCoordinates(lat,lon){
     //return weatherData.currently;
     const url = `${baseUrl}${lat},${lon}`;
     return $http.get(url)
@@ -22,8 +26,15 @@ function WeatherService($http){
                   return response.data.currently;
                 });
   }
-
-  function getHourly(lat,lon){
+  function getCurrentlyByLocation(location){
+    //return weatherData.currently;
+    const url = `${baseUrl}location/${location}`;
+    return $http.get(url)
+                 .then(response =>{
+                   return response.data.currently;
+                 });
+  }
+  function getHourlyByCoordinates(lat,lon){
     //return weatherData.hourly;
     const url = `${baseUrl}${lat},${lon}`;
     return  $http.get(url)
@@ -31,23 +42,44 @@ function WeatherService($http){
                    return resp.data.hourly;
                  });
   }
-
-  function getMinutely(lat,lon){
+  function getHourlyByLocation(location){
+    //return weatherData.currently;
+    const url = `${baseUrl}location/${location}`;
+    return $http.get(url)
+                 .then(response =>{
+                   return response.data.hourly;
+                 });
+  }
+  function getMinutelyByCoordinates(lat,lon){
     const url = `${baseUrl}${lat},${lon}`;
     return  $http.get(url)
                  .then(resp=>{
                    return resp.data.minutely;
                  });
   }
-
-  function getDaily(lat,lon){
+  function getMinutelyByLocation(location){
+    //return weatherData.currently;
+    const url = `${baseUrl}location/${location}`;
+    return $http.get(url)
+                 .then(response =>{
+                   return response.data.minutely;
+                 });
+  }
+  function getDailyByCoordinates(lat,lon){
     const url = `${baseUrl}${lat},${lon}`;
     return $http.get(url)
                 .then(resp=>{
                   return resp.data.daily;
                 });
   }
-
+  function getDailyByLocation(location){
+    //return weatherData.currently;
+    const url = `${baseUrl}location/${location}`;
+    return $http.get(url)
+                 .then(response =>{
+                   return response.data.daily;
+                 });
+  }
 
 }
 
