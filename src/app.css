@@ -7,3 +7,11 @@ img{
 img.detail-icon{
  height: 50px;
 }
+.divider{
+  padding-left: 100px;
+  margin-top:5px;
+  margin-bottom: 5px;
+}
+section{
+  margin-bottom: 25px;
+}
