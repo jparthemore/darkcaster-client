@@ -19,13 +19,13 @@ function DailyWeatherController(weather,images){
   //          .then(resp=>this.weatherDaily=resp);
   // };
   this.searchByCoordinates = function searchByCoordinates(){
-    weather.getDailyWeatherByCoordinates(this.lat,this.lon)
-           .then(resp => this.weatherDaily = resp); //is a promise
+    weather.getWeatherDataByCoordinates(this.lat,this.lon)
+           .then(resp => this.weatherDaily = resp.daily); //is a promise
   };
   this.searchByLocation = function searchByLocation(){
     const loc =  `${this.city}${this.state}${this.zip}`
-    weather.getDailyWeatherByLocation(loc)
-           .then(resp => this.weatherDaily = resp); //is a promise
+    weather.getWeatherDataByLocation(loc)
+           .then(resp => this.weatherDaily = resp.daily); //is a promise
   };
 
 }

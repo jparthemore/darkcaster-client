@@ -16,10 +16,10 @@ function MinutelyWeatherController (weather,images){
   this.weatherMinutelyNotAvailable = false;
 
   this.searchByCoordinates = function searchByCoordinates(){
-    weather.getMinutelyWeatherByCoordinates(this.lat,this.lon)
+    weather.getWeatherDataByCoordinates(this.lat,this.lon)
                                   .then(resp=>{
                                     if(resp){
-                                      this.weatherMinutely=resp;
+                                      this.weatherMinutely=resp.minutely;
                                     }
                                     else{
                                       this.weatherMinutelyNotAvailable='true';
@@ -29,17 +29,17 @@ function MinutelyWeatherController (weather,images){
 
   this.searchByLocation = function searchByLocation(){
     const loc =  `${this.city}${this.state}${this.zip}`
-    weather.getMinutelyWeatherByLocation(this.lat,this.lon)
+    weather.getWeatherDataByLocation(this.lat,this.lon)
                                   .then(resp=>{
                                     if(resp){
-                                      this.weatherMinutely=resp;
+                                      this.weatherMinutely=resp.minutely;
                                     }
                                     else{
                                       this.weatherMinutelyNotAvailable='true';
                                     }
                                   });
   };
-  
+
 }
 
 module.exports = MinutelyWeatherController;

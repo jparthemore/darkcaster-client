@@ -12,13 +12,15 @@ function CurrentWeatherController(weather,images){
 
   //functions
   this.searchByCoordinates = function searchByCoordinates(){
-    weather.getCurrentlyWeatherByCoordinates(this.lat,this.lon)
-           .then(currentWeather => this.weatherData = currentWeather); //is a promise
+    weather.getWeatherDataByCoordinates(this.lat,this.lon)
+           .then(resp => {
+             this.weatherData = resp.currently;
+           }); //is a promise
   };
   this.searchByLocation = function searchByLocation(){
     const loc =  `${this.city}${this.state}${this.zip}`
-    weather.getCurrentlyWeatherByLocation(loc)
-           .then(currentWeather => this.weatherData = currentWeather); //is a promise
+    weather.getWeatherDataByLocation(loc)
+           .then(resp => this.weatherData = resp.currently); //is a promise
   };
 
   //this.weatherData = weather.getCurrentWeather(); //is a promise $$state prmoises take time

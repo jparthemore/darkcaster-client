@@ -16,13 +16,13 @@ function HourlyWeatherController(weather,images){
   //         .then(resp =>this.weatherHourly =resp );
   // };
   this.searchByCoordinates = function searchByCoordinates(){
-    weather.getHourlyWeatherByCoordinates(this.lat,this.lon)
-           .then(resp => this.weatherHourly = resp); //is a promise
+    weather.getWeatherDataByCoordinates(this.lat,this.lon)
+           .then(resp => this.weatherHourly = resp.hourly); //is a promise
   };
   this.searchByLocation = function searchByLocation(){
-    const loc =  `${this.city}${this.state}${this.zip}`
-    weather.getHourlyWeatherByLocation(loc)
-           .then(resp => this.weatherHourly = resp); //is a promise
+    const loc =  `${this.city}${this.state}${this.zip}`;
+    weather.getWeatherDataByLocation(loc)
+           .then(resp => this.weatherHourly = resp.hourly); //is a promise
   };
 }
 
