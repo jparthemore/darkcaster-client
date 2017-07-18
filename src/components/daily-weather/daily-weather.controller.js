@@ -23,7 +23,7 @@ function DailyWeatherController(weather,images){
            .then(resp => this.weatherDaily = resp.daily); //is a promise
   };
   this.searchByLocation = function searchByLocation(){
-    const loc =  `${this.city}${this.state}${this.zip}`
+    const loc =  `${this.city}${this.state}${this.zip}`;
     weather.getWeatherDataByLocation(loc)
            .then(resp => this.weatherDaily = resp.daily); //is a promise
   };
