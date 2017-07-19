@@ -6,8 +6,13 @@ const WeatherInputComponent = {
   template: htmlTemplate,
   controller: inputController,
   bindings:{
-    searchByCoordinates: '&',
-    searchByLocation: '&'
+    searchbycoordinates: '&',
+    searchbylocation: '&',
+    lat: '=',
+    lon: '=',
+    city: '=',
+    state: '=',
+    zip: '='
   }
 };
 
