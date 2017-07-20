@@ -4,7 +4,10 @@ const dailyWeatherController = require('./daily-weather.controller');
 
 const dailyWeatherComponent = {
   template: htmlTemplate,
-  controller: dailyWeatherController
+  controller: dailyWeatherController,
+  bindings: {
+    weather: '<'
+  }
 };
 
 module.exports = dailyWeatherComponent;

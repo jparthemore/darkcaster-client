@@ -7,20 +7,19 @@ function MainAppController(weather){
   this.city = '';
   this.state = '';
   this.zip = '';
+  //this.weatherdataavailable = true;
 
   //functions
   this.searchByCoordinates = function searchByCoordinates(){
-    console.log('searching by coords');
     weather.getWeatherDataByCoordinates(this.lat,this.lon)
            .then(resp => {
-             this.weatherData = resp.currently;
+             this.weatherData = resp;
            }); //is a promise
   };
   this.searchByLocation = function searchByLocation(){
-    console.log('search by location');
     const loc =  `${this.city}${this.state}${this.zip}`;
     weather.getWeatherDataByLocation(loc)
-           .then(resp => this.weatherData = resp.currently); //is a promise
+           .then(resp => this.weatherData = resp); //is a promise
   };
 }
 

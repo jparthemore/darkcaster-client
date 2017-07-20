@@ -4,7 +4,7 @@ const appController = require('./main-app.controller');
 
 const MainAppComponent = {
   template: htmlTemplate,
-  controller: appController
+  controller: appController,
 };
 
 module.exports = MainAppComponent;

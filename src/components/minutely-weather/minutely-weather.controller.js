@@ -1,21 +1,13 @@
 /*jshint esversion: 6*/
-
-//const weatherData = require('../../../mocks/weather.json');
-
 MinutelyWeatherController.$inject=['WeatherService','ImageService'];
 
 function MinutelyWeatherController (weather,images){
-  //this.weatherMinutely = weatherData.minutely;
-  this.lat = 0;
-  this.lon = 0;
-  this.city = '';
-  this.state = '';
-  this.zip = '';
   this.imageLookup = images.imageLookup;
   this.missingImage = images.missingImage;
+  //this.weatherdataunavailable='';
   this.weatherMinutelyNotAvailable = false;
 
-  this.searchByCoordinates = function searchByCoordinates(){
+  /*this.searchByCoordinates = function searchByCoordinates(){
     weather.getWeatherDataByCoordinates(this.lat,this.lon)
                                   .then(resp=>{
                                     if(resp){
@@ -38,8 +30,7 @@ function MinutelyWeatherController (weather,images){
                                       this.weatherMinutelyNotAvailable='true';
                                     }
                                   });
-  };
-
+  };*/
 }
 
 module.exports = MinutelyWeatherController;
