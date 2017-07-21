@@ -6,7 +6,8 @@ const HourlyWeatherComponent = {
   template: htmlTemplate,
   controller: hourlyController,
   bindings: {
-    weather: '<'
+    weather: '<',
+    weatherdatareceived: '<'
   }
 };
 

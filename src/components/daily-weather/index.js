@@ -6,7 +6,8 @@ const dailyWeatherComponent = {
   template: htmlTemplate,
   controller: dailyWeatherController,
   bindings: {
-    weather: '<'
+    weather: '<',
+    weatherdatareceived: '<'
   }
 };
 

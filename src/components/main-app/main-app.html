@@ -3,10 +3,14 @@
   lat='$ctrl.lat' lon='$ctrl.lon'
   city='$ctrl.city' state='$ctrl.state' zip='$ctrl.zip'>
 </weather-input>
-<current-weather weather='$ctrl.weatherData.currently'></current-weather>
-<hourly-weather weather='$ctrl.weatherData.hourly'></hourly-weather>
-<minutely-weather weather='$ctrl.weatherData.minutely'></minutely-weather>
-<!-- <minutely-weather weather='$ctrl.weatherData.minutely'
-  weatherdataunavailable='$ctrl.weatherData.minutely'> -->
-</minutely-weather>
-<daily-weather weather='$ctrl.weatherData.daily'></daily-weather>
+<current-weather weather='$ctrl.weatherData.currently'
+  weatherdatareceived='$ctrl.weatherdatareceived'>
+</current-weather>
+<hourly-weather weather='$ctrl.weatherData.hourly'
+  weatherdatareceived='$ctrl.weatherdatareceived'>
+</hourly-weather>
+<minutely-weather weather='$ctrl.weatherData.minutely'
+  weatherdatareceived='$ctrl.weatherdatareceived'>
+<daily-weather weather='$ctrl.weatherData.daily'
+ weatherdatareceived='$ctrl.weatherdatareceived'>
+</daily-weather>

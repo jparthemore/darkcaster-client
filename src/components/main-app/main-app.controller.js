@@ -7,12 +7,13 @@ function MainAppController(weather){
   this.city = '';
   this.state = '';
   this.zip = '';
-  //this.weatherdataavailable = true;
+  this.weatherdatareceived = false;
 
   //functions
   this.searchByCoordinates = function searchByCoordinates(){
     weather.getWeatherDataByCoordinates(this.lat,this.lon)
            .then(resp => {
+             this.weatherdatareceived = true;
              this.weatherData = resp;
            }); //is a promise
   };

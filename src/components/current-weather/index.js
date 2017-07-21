@@ -5,7 +5,8 @@ const CurrentWeatherComponent = {
   template: htmlTemplate,
   controller: currentController,
   bindings: {
-    weather: '<'
+    weather: '<',
+    weatherdatareceived: '<'
   }
 };
 
