@@ -1,50 +1,21 @@
-<section>
-  <h1>Current Weather Lookup</h1>
-  <span>
-    <label>Latitude:</label>
-    <input type="number" ng-model='$ctrl.lat' />
-  </span>
-  <span>
-    <label>Longitude:</label>
-    <input type="number" ng-model='$ctrl.lon' />
-  </span>
-  <div class='divider'>OR</div>
-  <section class='city-state-zip'>
-    <span>
-      <label>City:</label>
-      <input type="text"ng-model='$ctrl.city' />
-    </span>
-    <span>
-      <label>State:</label>
-      <input type="text" ng-model='$ctrl.state'/>
-    </span>
-    <span>
-      <label>Zip:</label>
-      <input type="number" ng-model='$ctrl.zip'/>
-    </span>
-  </section>
-  <div>
-    <button type="button" ng-click='$ctrl.searchByCoordinates()'>Search By Coordinates</button>
-    <button type="button" ng-click='$ctrl.searchByLocation()'>Search By Location</button>
-  </div>
-</section>
-  <section ng-if='$ctrl.weatherData'>
+  <section ng-if='$ctrl.weatherdatareceived'>
     <header>
       <h2>Current Weather</h2>
-      <p>Precipitation Probability: {{ $ctrl.weatherData.precipProbability * 100 | number:1 }}%</p>
-      <img ng-src="{{ $ctrl.imageLookup[$ctrl.weatherData.icon] || $ctrl.missingImage }}" />
-      <p>{{ $ctrl.weatherData.time * 1000 | date: 'short'}}</p>
+      <p>Precipitation Probability: {{ $ctrl.weather.precipProbability * 100 | number:1 }}%</p>
+      <img ng-src="{{ $ctrl.imageLookup[$ctrl.weather.icon] || $ctrl.missingImage }}" />
+      <p>{{ $ctrl.weather.time * 1000 | date: 'short'}}</p>
     </header>
     <main>
-      <h1> Humidity: {{ $ctrl.weatherData.humidity * 100 | number: 0 }}%</h1>
+      <h1> Humidity: {{ $ctrl.weather.humidity * 100 | number: 0 }}%</h1>
       <div>
-        <h1>Temperature: {{ $ctrl.weatherData.temperature  | number: 0}}&deg; F</h1>
-        <h2>Feels like: {{ $ctrl.weatherData.apparentTemperature | number: 0}}&deg; F</h2>
+        <h1>Temperature: {{ $ctrl.weather.temperature  | number: 0}}&deg; F</h1>
+        <h2>Feels like: {{ $ctrl.weather.apparentTemperature | number: 0}}&deg; F</h2>
       </div>
-      <h1>UV Index: {{ $ctrl.weatherData.uvIndex }}</h1>
+      <h1>UV Index: {{ $ctrl.weather.uvIndex }}</h1>
     </main>
     <footer>
-      <h1>Summary: {{ $ctrl.weatherData.summary }}</h1>
+      <h1>Summary: {{ $ctrl.weather.summary }}</h1>
+        ------------------------<br>
     </footer>
   </section>
   <!-- <pre>{{ $ctrl.weatherData | json }}</pre> -->

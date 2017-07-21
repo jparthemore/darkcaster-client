@@ -4,7 +4,11 @@ const minutelyWeatherController = require('./minutely-weather.controller');
 
 const MinutelyWeatherComponent = {
   template: htmlTemplate,
-  controller: minutelyWeatherController
+  controller: minutelyWeatherController,
+  bindings: {
+    weather: '<',
+    weatherdatareceived: '<'
+  }
 };
 
 module.exports = MinutelyWeatherComponent;

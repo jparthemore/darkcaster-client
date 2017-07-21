@@ -1,0 +1,17 @@
+<weather-input searchbycoordinates='$ctrl.searchByCoordinates()'
+  searchbylocation='$ctrl.searchByLocation()'
+  lat='$ctrl.lat' lon='$ctrl.lon'
+  city='$ctrl.city' state='$ctrl.state' zip='$ctrl.zip'>
+</weather-input>
+<current-weather weather='$ctrl.weatherData.currently'
+  weatherdatareceived='$ctrl.weatherdatareceived'>
+</current-weather>
+<hourly-weather weather='$ctrl.weatherData.hourly'
+  weatherdatareceived='$ctrl.weatherdatareceived'>
+</hourly-weather>
+<minutely-weather weather='$ctrl.weatherData.minutely'
+  weatherdatareceived='$ctrl.weatherdatareceived'>
+</minutely-weather>
+<daily-weather weather='$ctrl.weatherData.daily'
+ weatherdatareceived='$ctrl.weatherdatareceived'>
+</daily-weather>
