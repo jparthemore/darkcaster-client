@@ -8,11 +8,13 @@ const WeatherInputComponent = {
   bindings:{
     searchbycoordinates: '&',
     searchbylocation: '&',
+    //getweatherinput: '&',
     lat: '=',
     lon: '=',
     city: '=',
     state: '=',
-    zip: '='
+    zip: '=',
+    chosenweathertype: '='
   }
 };
 
