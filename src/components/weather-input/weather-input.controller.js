@@ -7,7 +7,7 @@ function WeatherInputController(weather){
   this.city = '';
   this.state = '';
   this.zip = '';
-  this.weatherinputtypes =['Currently','Hourly','Minutely','Daily','All'];
+  this.weatherinputtypes =['Current','Hourly','By the Minute','Daily','All'];
   this.weatherinput = this.weatherinputtypes[0];
   this.chosenweathertype = '';
 

@@ -8,7 +8,7 @@ function MainAppController(weather){
   this.state = '';
   this.zip = '';
   this.weatherdatareceived = false;
-  this.chosenweathertype = 'Currently';
+  this.chosenweathertype = 'Current';
   this.filterOutput = filterOutput;
   this.currently = false;
   this.hourly = false;
@@ -18,9 +18,6 @@ function MainAppController(weather){
   //functions
   this.searchByCoordinates = function searchByCoordinates(){
     this.filterOutput(this.chosenweathertype);
-    /*console.log('weather type is for search  is: ',this.chosenweathertype);
-    console.log('lat for search  is: ',this.lat);
-    console.log('lon for search  is: ',this.lon);*/
 
     weather.getWeatherDataByCoordinates(this.lat,this.lon)
            .then(resp => {
@@ -40,10 +37,10 @@ function MainAppController(weather){
     this.hourly = false;
     this.daily = false;
     switch(weatherType){
-       case 'Currently':
+       case 'Current':
          this.currently = true;
          break;
-       case 'Minutely':
+       case 'By the Minute':
          this.minutely = true;
          break;
        case 'Hourly':
@@ -62,7 +59,6 @@ function MainAppController(weather){
          this.currently = true;
          break;
     }
-  //this.currentWeather.addClass('ng-hide');
   }
 }
 
