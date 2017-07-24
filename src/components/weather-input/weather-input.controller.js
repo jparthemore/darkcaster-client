@@ -7,6 +7,13 @@ function WeatherInputController(weather){
   this.city = '';
   this.state = '';
   this.zip = '';
+  this.weatherinputtypes =['Current','Hourly','By the Minute','Daily','All'];
+  this.weatherinput = this.weatherinputtypes[0];
+  this.chosenweathertype = '';
+
+  this.onChange = function onChange(){
+    this.chosenweathertype = this.weatherinput;
+  };
 }
 
 module.exports = WeatherInputController;

@@ -12,7 +12,8 @@ const WeatherInputComponent = {
     lon: '=',
     city: '=',
     state: '=',
-    zip: '='
+    zip: '=',
+    chosenweathertype: '='
   }
 };
 

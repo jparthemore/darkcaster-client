@@ -23,12 +23,25 @@
       <input type="number" ng-model='$ctrl.zip'/>
     </span>
   </section>
-  <!-- <div >
-    <input type="radio" ng-checked="checked"/>Currently
-    <input type="radio"/>Hourly
-    <input type="radio"/>Minutely
-    <input type="radio"/>Daily
-  </div> -->
+  <section>
+
+  <!-- this works -->
+  <!-- <label for="w-input">Weather Type: </label>
+  <select name="w-input" id="w-input" class='input-types'
+    ng-model='$ctrl.weatherinput'
+    ng-options='x for x in $ctrl.weatherinputtypes'
+    ng-change="$ctrl.onChange()" >
+  </select> -->
+
+
+  <!-- this also works -->
+  <label for="w-input">Weather Type: </label>
+  <select name="w-input" id="w-input" class='input-types'
+    ng-model='$ctrl.weatherinput'
+    ng-change="$ctrl.onChange()">
+    <option ng-repeat="x in $ctrl.weatherinputtypes">{{x}}</option>
+  </select>
+
   <div>
     <button type="button" ng-click='$ctrl.searchbycoordinates()'>Search By Coordinates</button>
     <button type="button" ng-click='$ctrl.searchbylocation()'>Search By Location</button>
