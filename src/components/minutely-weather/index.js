@@ -7,7 +7,8 @@ const MinutelyWeatherComponent = {
   controller: minutelyWeatherController,
   bindings: {
     weather: '<',
-    weatherdatareceived: '<'
+    weatherdatareceived: '<',
+    chosenweathertype: '<'
   }
 };
 

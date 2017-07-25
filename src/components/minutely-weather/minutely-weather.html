@@ -1,16 +1,18 @@
-<section ng-switch='$ctrl.weatherdatareceived'>
-  <header ng-switch-when="true">
-    <h1>Weather By the Minute</h1>
-    <h1>{{$ctrl.weather? ('Summary: '+$ctrl.weather.summary ) : "No minutely data available for this location at this time"}}</h1>
-    <img ng-if='$ctrl.weather' ng-src="{{ $ctrl.imageLookup[$ctrl.weather.icon || $ctrl.missingImage]}}" />
-  </header>
-  <main>
-    <p ng-repeat="x in $ctrl.weather.data">
-      ---------------------- <br>
-      Time: {{ x.time * 1000 | date: 'short'}} <br>
-      Precipitation Probability: {{ (x.precipProbability * 100 | number: 1) || 'not available'}}% <br>
-      Precipitation Intensity: {{ (x.precipIntensity * 100 |number: 0) || 'not available'}}% <br>
-    </p>
-  </main>
+<section ng-if="$ctrl.chosenweathertype=='By the Minute'||$ctrl.chosenweathertype=='All'">
+  <section ng-switch='$ctrl.weatherdatareceived'>
+    <header ng-switch-when="true">
+      <h1 >Weather By the Minute</h1>
+      <h1>{{($ctrl.weather ) ? ('Summary: '+$ctrl.weather.summary ) : "No minutely data available for this location at this time"}}</h1>
+      <img ng-if='$ctrl.weather' ng-src="{{ $ctrl.imageLookup[$ctrl.weather.icon || $ctrl.missingImage]}}" />
+    </header>
+    <main>
+      <p ng-repeat="x in $ctrl.weather.data">
+        ---------------------- <br>
+        Time: {{ x.time * 1000 | date: 'short'}} <br>
+        Precipitation Probability: {{ (x.precipProbability * 100 | number: 1) || 'not available'}}% <br>
+        Precipitation Intensity: {{ (x.precipIntensity * 100 |number: 0) || 'not available'}}% <br>
+      </p>
+    </main>
+  </section>
 </section>
 <!-- <pre>{{ $ctrl.weather | json }}</pre> -->

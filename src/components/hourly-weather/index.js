@@ -7,7 +7,8 @@ const HourlyWeatherComponent = {
   controller: hourlyController,
   bindings: {
     weather: '<',
-    weatherdatareceived: '<'
+    weatherdatareceived: '<',
+    chosenweathertype: '<'
   }
 };
 

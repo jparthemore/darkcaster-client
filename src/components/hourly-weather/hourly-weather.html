@@ -1,4 +1,5 @@
-<section ng-if='$ctrl.weatherdatareceived'>
+<section ng-if=" $ctrl.weatherdatareceived
+  && ($ctrl.chosenweathertype=='Hourly' || $ctrl.chosenweathertype=='All')">
   <header>
     <h1>Weather by the Hour</h1>
     <h1>Summary: {{ $ctrl.weather.summary}}</h1>
