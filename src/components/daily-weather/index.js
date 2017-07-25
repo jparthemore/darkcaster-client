@@ -7,7 +7,8 @@ const dailyWeatherComponent = {
   controller: dailyWeatherController,
   bindings: {
     weather: '<',
-    weatherdatareceived: '<'
+    weatherdatareceived: '<',
+    chosenweathertype: '<'
   }
 };
 

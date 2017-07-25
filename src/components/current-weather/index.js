@@ -6,7 +6,8 @@ const CurrentWeatherComponent = {
   controller: currentController,
   bindings: {
     weather: '<',
-    weatherdatareceived: '<'
+    weatherdatareceived: '<',
+    chosenweathertype: '<'
   }
 };
 
